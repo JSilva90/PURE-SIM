@@ -8,17 +8,17 @@ For more details about the PURE-SIM algorithm and an extensive study of the best
 
 This implementation reads the data from a JSON file. Each line of the JSON file is a publication and its metadata separated by categories or groups. Here is an example of a line from the JSON file (a sample dataset is provided in this repository)-
 
-{"id": 1572886, "journals": [18400], "keywords": ["Overweight/obese", "Type 2 diabetes", "Lifestyle weight-loss interventions"], "couplingCitations": ["000306122600006", "000312909000002", "000296181800004"], "references": ["15728860000002512763", "15728860000002078659", "15728860000002565938", "15728860000002695938", "15728860000002845237"], "authors": [12528582, 11170365, 18742992, 32035541]}
+	{"id": 1572886, "journals": [18400], "keywords": ["Overweight/obese", "Type 2 diabetes", "Lifestyle weight-loss interventions"], "couplingCitations": ["000306122600006", "000312909000002", "000296181800004"], "references": ["15728860000002512763", "15728860000002078659", "15728860000002565938", "15728860000002695938", "15728860000002845237"], "authors": [12528582, 11170365, 18742992, 32035541]}
 
 In this example there are 5 categories of metadata for this publication: journals, keywords, couplingCitations, references and authors. This implementation does not implement any data pre-processing step and assumes that each metadata is an id for that metadata attribute. According to PURE-SIM publication this is trivial for metadata categories such as authors, keywords and journals. However, for citation information it is necessary to create *fictional* data. For example, in the data provided as example, the references are an id of two publications and a *000000* padding between them. Furthermore, the coupling citations are an id that represents the action of citing some publication. For more details about this, please refer to the PURE-SIM paper [1].
 
 This implementations discards metadata attributes from the data that are not shared by more than one publication and removes publications that are isolated from all the others (i.e., there is no path in the HIN for that publication to any other.) The number of metadata attributes and publications removed from the dataset is provided as output of this implmentation. Here's an example bellow:
 
-> Number of nodes removed per type:
-> {'J': 260, 'R': 1023, 'C': 25406, 'K': 3375, 'A': 5755}
-> Removed 90 nodes because they are isolated
-> Number of nodes per type in the network:
-> {'P': 910, 'C': 555, 'K': 296, 'A': 38, 'R': 2, 'J': 205}
+ 	Number of nodes removed per type:
+ 	{'J': 260, 'R': 1023, 'C': 25406, 'K': 3375, 'A': 5755}
+ 	Removed 90 nodes because they are isolated
+ 	Number of nodes per type in the network:
+ 	{'P': 910, 'C': 555, 'K': 296, 'A': 38, 'R': 2, 'J': 205}
 
 Note that this implementation only considers the first letter of the metadata categories (e.g., K = keywords) to identify different types of nodes. P is always the letter associated with the publication nodes.
 
@@ -26,10 +26,10 @@ Note that this implementation only considers the first letter of the metadata ca
 
 This implementation outputs a file where each line consists of the two publications ids and their estimated similarity. Here is an example:
 
-> P_1049873 P_1049084 0.295918
-> P_1049873 P_1049957 0.096939
-> P_1049873 P_1049962 0.102041
-> P_1049873 P_1049954 0.112245
+	P_1049873 P_1049084 0.295918
+ 	P_1049873 P_1049957 0.096939
+ 	P_1049873 P_1049962 0.102041
+ 	P_1049873 P_1049954 0.112245
 
 
 ## User-defined parameters
@@ -55,13 +55,13 @@ In this repository we also provide more results for the experiments conducted in
 
 The plots are in the _PublicationResults_ folder and are organized as follows:
 
-* `D10\_n\_parameter` a folder that contains the GA plots for all the metadata combinations the results of changing the _N_ parameter in the D10 dataset.
-* `D10\_w\_parameter` a folder that contains the GA plots for all the metadata combinations the results of changing the _W_ parameter in the D10 dataset.
-* `D20\_m\_parameter` a folder that contains the GA plots for the results of changing the _M_ parameter in the D20 dataset with a fixed _N_ = 300 and _W_ = metadata.
-* `D20\_m\_combinations_gains` a folder that contains the GA plots of groups of metadata combinations that contain or not a certain metadata category (e.g., the Author file has a GA line which represents the average GA line for all the metadata combinations that do not use authors and another GA line which represents the average GA line for all the metadata combinations that use authors.)
-* `D20\_all\_m\parameter_` a single image with the GA plot for all metadata combinations in the D20 dataset.
-* `D20\_m\_parameter` a single GA plot with some metadata combinations in the D20 dataset.
-* `D20\_best\_m\_parameter` a single GA plot with the best metadata combinations in the D20 dataset.
+* `D10_n_parameter` a folder that contains the GA plots for all the metadata combinations the results of changing the _N_ parameter in the D10 dataset.
+* `D10_w_parameter` a folder that contains the GA plots for all the metadata combinations the results of changing the _W_ parameter in the D10 dataset.
+* `D20_m_parameter` a folder that contains the GA plots for the results of changing the _M_ parameter in the D20 dataset with a fixed _N_ = 300 and _W_ = metadata.
+* `D20_m_combinations_gains` a folder that contains the GA plots of groups of metadata combinations that contain or not a certain metadata category (e.g., the Author file has a GA line which represents the average GA line for all the metadata combinations that do not use authors and another GA line which represents the average GA line for all the metadata combinations that use authors.)
+* `D20_all_m_parameter` a single image with the GA plot for all metadata combinations in the D20 dataset.
+* `D20_m_parameter` a single GA plot with some metadata combinations in the D20 dataset.
+* `D20_best_m_parameter` a single GA plot with the best metadata combinations in the D20 dataset.
 
 
 ## References
