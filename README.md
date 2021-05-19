@@ -47,7 +47,7 @@ This implementation uses the following arguments for the script:
 
 In this repository we provide a sample dataset to test this PURE-SIM implementation. Using this dataset as an example, to run the PURE-SIM algorithm with 300 random walks per publication, the metadata weighting scheme, 4 cpus and the similarities being computed considering the metadata categories of authors, keywords, journals, coupling citations and references. The following line should be used:
 
-`python PURESIM.py -data sample_dataset.JSON -M authors_keywords_journals_couplingCitations_references -W metadata -N 300 -cpus 4 -outfile test_sims.csv `
+	python PURESIM.py -data sample_dataset.JSON -M authors_keywords_journals_couplingCitations_references -W metadata -N 300 -cpus 4 -outfile test_sims.csv 
 
 ## Experiments
 
