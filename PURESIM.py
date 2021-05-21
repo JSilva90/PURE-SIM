@@ -10,9 +10,6 @@ Created on Mon May 11 11:44:54 2020
 
 
 import time
-import csv
-import sys
-import os
 import numpy as np
 import collections
 import multiprocessing as mp
