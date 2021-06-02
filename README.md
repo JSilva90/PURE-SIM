@@ -70,4 +70,4 @@ The plots are in the _PublicationResults_ folder and are organized as follows:
 
 Please cite the references appropriately in case they are used.
 
-[1] Jorge Silva, Nees Jan van Eck, Pedro Ribeiro, Fernando Silva (2021). PURE-SIM: exploring metadata relations to estimate publication similarity. Soon to appear.
+[1] Jorge Silva, Nees Jan van Eck, Pedro Ribeiro, Fernando Silva (2021). PURE-SIM: utilising metadata relations to estimate publication similarity. Soon to appear.
